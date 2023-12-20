@@ -20,7 +20,7 @@ static int	ft_ptrlen(uintptr_t num)
 	len = 0;
 	while (num)
 	{
-		len++
+		len++;
 		num /= 16;
 	}
 	return (len);
@@ -30,8 +30,8 @@ static void ft_put_ptr(uintptr_t num)
 {
 	if (num >= 16)
 	{
-		ft_putptr(num / 16);
-		ft_putptr(num % 16);
+		ft_put_ptr(num / 16);
+		ft_put_ptr(num % 16);
 	}
 	else
 	{
@@ -42,7 +42,7 @@ static void ft_put_ptr(uintptr_t num)
 	}
 }
 
-int	ft_print_ptr(va_list arg, unsigned long long ptr)
+int	ft_print_ptr(unsigned long long ptr)
 {
 	int	len;
 
