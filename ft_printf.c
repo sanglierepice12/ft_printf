@@ -3,36 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsuter <gostr@student.42.fr>               +#+  +:+       +#+        */
+/*   By: gostr <gostr@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 10:33:10 by gsuter            #+#    #+#             */
-/*   Updated: 2023/12/07 11:26:26 by gsuter           ###   ########.fr       */
+/*   Created: 2023/12/20 09:41:24 by gostr             #+#    #+#             */
+/*   Updated: 2023/12/20 09:41:24 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *str, ...)
+static int	ft_strlen(char *arg)
 {
+	int	i;
+	
+	i = 0;
+	while (arg[i])
+		i++;
+	return (i);
+}
+
+static int	ft_format(va_list arg, char format)
+{
+	if (format == 'c')
+		return (ft_putchar(va_arg (arg, int)));
+	if (format == 's')
+		return (ft_putstr(va_arg(arg, char *)));
+	if (format == 'p')
+		return ();
+	if (format == '%')
+		return ft_put_percent();
+	return (-1);
+}
+
+int	ft_printf(char *str, ...)
+{
+	va_list arg;
+	va_start(arg, str);
 	int	len;
 	int i;
 
 	i = 0;
-	len = (int)ft_strlen(str);
-	va_list arg;
-	va_start(arg, str);
-
-	while (i < len)
+	while (str[i])
 	{
 		if (str[i] == '%')
 		{
+			len += ft_format(arg, str[i + 1]);
 			i++;
-			ft_string_format(str[i], arg);
 		}
 		else
-			ft_putchar_fd(str[i],1);
+			len += ft_putchar(str[i]);
 		i++;
 	}
+	va_end(arg);
+	return (len);
+}
 
-	return (i);
+int main(int arc, char **argv)
+{
+	if (arc < 2)
+		return 0;
+	ft_printf("coucou %c", argv[1]);
+	return 0;
 }

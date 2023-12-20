@@ -1,11 +1,7 @@
 SRCS    =	ft_printf.c	\
-			ft_string_format.c
-
-#BNS        =
+			ft_utils.c
 
 OBJS	=	${SRCS:.c=.o}
-
-#B_OBJS	=	${BNS:.c=.o}
 
 HEADER	=	libft.h
 
@@ -19,14 +15,11 @@ FLAGS	=	-Wall -Wextra -Werror
 
 all	:	${NAME}
 
-%.o	:	%.c ${HEADER}
+%.o	:	%.c ${HEADER} Makefile
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}	:	${OBJS} Makefile
 	${AR} ${NAME} ${OBJS}
-
-#bonus	:
-#		@make SRCS="${SRCS} ${BNS}"
 
 clean	:
 	rm -f ${OBJS} ${B_OBJS}
