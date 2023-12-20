@@ -26,6 +26,8 @@ static int	ft_format(va_list arg, char format)
 		return (ft_putnbr(va_arg(arg, int)));
 	if (format == 'u')
 		return (ft_put_unsigned(va_arg(arg, unsigned int)));
+	if (format == 'x' || format == 'X')
+		return (ft_put_hexa(va_arg(arg, unsigned int), format));
 	if (format == '%')
 		return ft_put_percent();
 	return (-1);
@@ -61,8 +63,8 @@ int main(int arc, char **argv)
 {
 	if (arc < 2)
 		return 0;
-	int a = ft_printf("printf : %d", atoi(argv[1]));
+	int a = ft_printf("printf : %X", atoi(argv[1]));
 	printf("\na = %d", a);
-	printf("\ncoucou : %u", atoi(argv[1]));
+	printf("\ncoucou : %X", atoi(argv[1]));
 	return 0;
 }
