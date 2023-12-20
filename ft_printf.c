@@ -11,23 +11,21 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-static int	ft_format(va_list arg, char format)
+static int	ft_format(va_list args, const char format)
 {
-	int a = 0;
 	if (format == 'c')
-		return (ft_putchar(va_arg (arg, int)));
+		return (ft_putchar(va_arg (args, int)));
 	if (format == 's')
-		return (ft_putstr(va_arg(arg, char *)));
+		return (ft_putstr(va_arg(args, char *)));
 	if (format == 'p')
-		return (ft_print_ptr(va_arg(arg, unsigned long long)));
+		return (ft_print_ptr(va_arg(args, unsigned long long)));
 	if (format == 'd' || format == 'i')
-		return (ft_putnbr(va_arg(arg, int)));
+		return (ft_putnbr(va_arg(args, int)));
 	if (format == 'u')
-		return (ft_put_unsigned(va_arg(arg, unsigned int)));
+		return (ft_put_unsigned(va_arg(args, unsigned int)));
 	if (format == 'x' || format == 'X')
-		return (ft_put_hexa(va_arg(arg, unsigned int), format));
+		return (ft_put_hexa(va_arg(args, unsigned int), format));
 	if (format == '%')
 		return ft_put_percent();
 	return (-1);
@@ -35,30 +33,28 @@ static int	ft_format(va_list arg, char format)
 
 int	ft_printf(char *str, ...)
 {
-	va_list arg;
-	va_start(arg, str);
+	va_list args;
 	int	len;
 	int i;
 
 	i = 0;
 	len = 0;
+	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
 			i++;
-			len += ft_format(arg, str[i]);
-		}
-		else
+			len += ft_format(args, str[i]);
+		} else
 			len += ft_putchar(str[i]);
 		i++;
 	}
-	va_end(arg);
-	return (len);
+	return (va_end(args), len);
 }
 
 #include <stdlib.h>
-
+#include <stdio.h>
 int main(int arc, char **argv)
 {
 	if (arc < 2)
@@ -69,7 +65,7 @@ int main(int arc, char **argv)
 	ft_printf("s : %s\n", argv[1]);
 	printf("p : %p\n", argv[1]);
 	ft_printf("p : %p\n", argv[1]);*/
-	printf("d : %d - %d\n", 0, 5);
+	printf("d : %d - %c\n", 0, argv[1][0]);
 	ft_printf("d : %d - %d\n", 0, 5);
 	/*printf("i : %i\n", 0);
 	ft_printf("i : %i\n", 0);
