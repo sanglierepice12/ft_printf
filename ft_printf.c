@@ -63,8 +63,24 @@ int main(int arc, char **argv)
 {
 	if (arc < 2)
 		return 0;
-	int a = ft_printf("printf : %X", atoi(argv[1]));
-	printf("\na = %d", a);
-	printf("\ncoucou : %X", atoi(argv[1]));
+	/*printf("c : %c - %c\n", argv [1][0], argv [1][1]);
+	ft_printf("c : %c - %c\n", argv [1][0], argv [1][1]);
+	printf("s : %s\n", argv[1]);
+	ft_printf("s : %s\n", argv[1]);
+	printf("p : %p\n", argv[1]);
+	ft_printf("p : %p\n", argv[1]);*/
+	printf("d : %d - %d\n", 0, 5);
+	ft_printf("d : %d - %d\n", 0, 5);
+	/*printf("i : %i\n", 0);
+	ft_printf("i : %i\n", 0);
+	printf("u : %u\n", 0);
+	ft_printf("u : %u\n", 0);
+	printf("x : %x\n", atoi(argv[2]));
+	ft_printf("x : %x\n", atoi(argv[2]));
+	printf("X : %X\n", atoi(argv[2]));
+	ft_printf("X : %X\n", atoi(argv[2]));
+	printf("%%\n");
+	ft_printf("%%\n");*/
+
 	return 0;
 }
