@@ -42,7 +42,6 @@ int	ft_printf(const char *str, ...)
 
 	i = 0;
 	len = 0;
-	temp = 0;
 	va_start(args, str);
 	while (str[i])
 	{
@@ -50,12 +49,12 @@ int	ft_printf(const char *str, ...)
 		{
 			i++;
 			temp = ft_format(args, str[i]);
-			if (temp == -1)
-				return (va_end(args), -1);
-			len += temp;
 		}
 		else
-			len += ft_putchar(str[i]);
+			temp = ft_putchar(str[i]);
+		if (temp == -1)
+			return (va_end(args), -1);
+		len += temp;
 		i++;
 	}
 	return (va_end(args), len);
