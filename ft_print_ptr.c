@@ -19,8 +19,8 @@ static void	ft_put_ptr(uintptr_t num, int *len)
 
 	if (num >= 16)
 	{
-		ft_put_ptr(num / 16);
-		ft_put_ptr(num % 16);
+		ft_put_ptr(num / 16, len);
+		ft_put_ptr(num % 16, len);
 	}
 	else
 	{
