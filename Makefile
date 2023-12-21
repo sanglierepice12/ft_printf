@@ -7,9 +7,9 @@ SRCS    =	ft_printf.c	\
 
 OBJS	=	${SRCS:.c=.o}
 
-HEADER	=	libft.h
+HEADER	=	ft_printf.h
 
-NAME	=	libft.a
+NAME	=	libftprintf.a
 
 CC	=	cc
 
