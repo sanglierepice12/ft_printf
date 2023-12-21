@@ -17,7 +17,7 @@
 # include <stddef.h>
 # include <stdarg.h>
 
-int	ft_printf(char *arg, ...);
+int	ft_printf(const char *arg, ...);
 
 int	ft_putchar(char c);
 int	ft_putstr(char *str);

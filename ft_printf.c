@@ -31,7 +31,7 @@ static int	ft_format(va_list args, const char format)
 	return (-1);
 }
 
-int	ft_printf(char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		len;
