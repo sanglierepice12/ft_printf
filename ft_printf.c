@@ -48,9 +48,11 @@ int	ft_printf(char *str, ...)
 		{
 			i++;
 			if (!str[i])
-				return (-1);
+				return (va_end(args), -1);
+			temp = ft_format(args, str[i]);
+			if (temp == -1)
+				return (va_end(args), -1);
 			len += temp;
-			temp += ft_format(args, str[i]);
 		}
 		else
 			len += ft_putchar(str[i]);
@@ -59,7 +61,7 @@ int	ft_printf(char *str, ...)
 	return (va_end(args), len);
 }
 
-/*#include <stdlib.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
 int main(int arc, char **argv)
@@ -67,7 +69,7 @@ int main(int arc, char **argv)
 	if (arc < 2)
 		return 0;
 
-
+/*
 	printf("c : %c - %c\n", argv [1][0], argv [1][1]);
 	ft_printf("c : %c - %c\n", argv [1][0], argv [1][1]);
 	printf("s : %s\n", argv[1]);
@@ -86,12 +88,12 @@ int main(int arc, char **argv)
 	ft_printf("x : %x\n", atoi(argv[2]));
 	printf("X : %X\n", atoi(argv[2]));
 	ft_printf("X : %X\n", atoi(argv[2]));
+*/
+	printf("real %d\n", printf("    %%%%%%\n"));
+	printf("moi %d\n", ft_printf("    %%%%%%\n"));
 
-	printf("real %d\n", printf("%%%%%%\n"));
-	printf("moi %d\n",ft_printf("%%%%%%\n"));
 
-
-	char *s = "slay";
+/*	char *s = "slay";
 	char *n = NULL;
 
 	printf("%d\n", ft_printf("%s", s));
@@ -108,5 +110,6 @@ int main(int arc, char **argv)
 
 	printf("%d\n", ft_printf("%"));
 	printf("%d\n\n", printf("%"));
+ */
 	return 0;
-}*/
+}
