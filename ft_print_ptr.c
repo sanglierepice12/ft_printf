@@ -49,7 +49,7 @@ int	ft_print_ptr(unsigned long long ptr)
 	len = 0;
 	if (!ptr)
 		return (ft_putstr("(nil)"));
-	len += write (1, "x0", 2);
+	len += write (1, "0x", 2);
 	if (!ptr)
 		len += write (1, "0", 1);
 	else
