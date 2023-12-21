@@ -50,12 +50,7 @@ int	ft_print_ptr(unsigned long long ptr)
 	if (!ptr)
 		return (ft_putstr("(nil)"));
 	len += write (1, "0x", 2);
-	if (!ptr)
-		len += write (1, "0", 1);
-	else
-	{
-		ft_put_ptr(ptr);
-		len += ft_ptrlen(ptr);
-	}
+	ft_put_ptr(ptr);
+	len += ft_ptrlen(ptr);
 	return (len);
 }
