@@ -13,21 +13,10 @@
 #include "ft_printf.h"
 #include <stdint.h>
 
-static int	ft_ptrlen(uintptr_t num)
+static void	ft_put_ptr(uintptr_t num, int *len)
 {
-	int	len;
+	int	tmp;
 
-	len = 0;
-	while (num)
-	{
-		len++;
-		num /= 16;
-	}
-	return (len);
-}
-
-static void	ft_put_ptr(uintptr_t num)
-{
 	if (num >= 16)
 	{
 		ft_put_ptr(num / 16);
@@ -36,9 +25,12 @@ static void	ft_put_ptr(uintptr_t num)
 	else
 	{
 		if (num <= 9)
-			ft_putchar((num + '0'));
+			tmp = ft_putchar((num + '0'));
 		else
-			ft_putchar((num - 10 + 'a'));
+			tmp = ft_putchar((num - 10 + 'a'));
+		if (tmp == -1)
+			return (*len = -1, (void)0);
+		*len += tmp;
 	}
 }
 
@@ -50,7 +42,10 @@ int	ft_print_ptr(unsigned long long ptr)
 	if (!ptr)
 		return (ft_putstr("(nil)"));
 	len += write (1, "0x", 2);
-	ft_put_ptr(ptr);
-	len += ft_ptrlen(ptr);
+	if (len == -1)
+		return (len);
+	ft_put_ptr(ptr, &len);
+	if (len == -1)
+		return (len);
 	return (len);
 }
