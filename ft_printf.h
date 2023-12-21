@@ -13,6 +13,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# define INT_MIN -2147483648
 # include <unistd.h>
 # include <stddef.h>
 # include <stdarg.h>

@@ -28,6 +28,8 @@ static int	ft_format(va_list args, const char format)
 		return (ft_put_hexa(va_arg(args, unsigned int), format));
 	if (format == '%')
 		return (ft_put_percent());
+	if (format == 0)
+		return (-1);
 	return (-1);
 }
 
@@ -47,8 +49,6 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			if (!str[i])
-				return (va_end(args), -1);
 			temp = ft_format(args, str[i]);
 			if (temp == -1)
 				return (va_end(args), -1);
