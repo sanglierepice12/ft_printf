@@ -15,17 +15,24 @@
 int	ft_putnbr(int nb)
 {
 	int	len;
+	int	tmp;
 
 	len = 0;
 	if (nb == INT_MIN)
 		return (ft_putstr("-2147483648"));
 	if (nb < 0)
 	{
-		len += write(1, "-", 1);
+		tmp = write(1, "-", 1);
+		if (tmp == -1)
+			return (-1);
+		len += tmp;
 		nb *= -1;
 	}
 	if (nb > 9)
 		len += ft_putnbr(nb / 10);
-	len += ft_putchar((nb % 10) + '0');
+	tmp = ft_putchar((nb % 10) + '0');
+	if (tmp == -1)
+		return (-1);
+	len += tmp;
 	return (len);
 }
