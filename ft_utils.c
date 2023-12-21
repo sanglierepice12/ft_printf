@@ -17,19 +17,21 @@ int	ft_putchar(char c)
 	return (write(1, &c, 1));
 }
 
-int	ft_putstr(char *str)
+size_t	ft_strlen(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	ft_putstr(char *str)
+{
 	if (!str)
 		return (ft_putstr("(null)"));
-	while (str[i])
-	{
-		(write(1, &str[i], 1));
-		i++;
-	}
-	return (i);
+	return (write(1, str, ft_strlen(str)));
 }
 
 int	ft_put_percent(void)
