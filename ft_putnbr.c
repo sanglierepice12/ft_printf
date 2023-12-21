@@ -29,10 +29,12 @@ int	ft_putnbr(int nb)
 		nb *= -1;
 	}
 	if (nb > 9)
+	{
 		tmp = ft_putnbr(nb / 10);
-	if (tmp == -1)
-		return (-1);
-	len += tmp;
+		if (tmp == -1)
+			return (-1);
+		len += tmp;
+	}
 	tmp = ft_putchar((nb % 10) + '0');
 	if (tmp == -1)
 		return (-1);
