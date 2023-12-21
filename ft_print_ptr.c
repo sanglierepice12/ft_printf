@@ -39,8 +39,8 @@ int	ft_print_ptr(unsigned long long ptr)
 	int	len;
 
 	len = 0;
-	if (!ptr)
-		return (ft_putstr("(nil)"));
+	/*if (!ptr)
+		return (ft_putstr("(nil)"));*/
 	len += write (1, "0x", 2);
 	if (len == -1)
 		return (len);
