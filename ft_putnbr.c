@@ -6,13 +6,13 @@
 /*   By: gostr <gostr@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:35:56 by gostr             #+#    #+#             */
-/*   Updated: 2023/12/20 15:35:56 by gostr            ###   ########.fr       */
+/*   Updated: 2023/12/21 09:57:49 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putnbr(int nb)
+int	ft_putnbr(int nb)
 {
 	int	len;
 

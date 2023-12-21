@@ -6,15 +6,15 @@
 /*   By: gostr <gostr@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:49:01 by gostr             #+#    #+#             */
-/*   Updated: 2023/12/20 16:49:01 by gostr            ###   ########.fr       */
+/*   Updated: 2023/12/21 09:57:49 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_put_hexa(unsigned int nb, const char format)
+int	ft_put_hexa(unsigned int nb, const char format)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (nb >= 16)

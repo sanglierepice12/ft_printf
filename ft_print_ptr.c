@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:07:31 by gostr             #+#    #+#             */
-/*   Updated: 2023/12/20 14:07:31 by gostr            ###   ########.fr       */
+/*   Updated: 2023/12/21 09:57:49 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_ptrlen(uintptr_t num)
 	return (len);
 }
 
-static void ft_put_ptr(uintptr_t num)
+static void	ft_put_ptr(uintptr_t num)
 {
 	if (num >= 16)
 	{
@@ -47,9 +47,11 @@ int	ft_print_ptr(unsigned long long ptr)
 	int	len;
 
 	len = 0;
-	len += write(1,"x0", 2);
 	if (!ptr)
-		len += write(1, "0", 1);
+		return (ft_putstr("(nil)"));
+	len += write (1, "x0", 2);
+	if (!ptr)
+		len += write (1, "0", 1);
 	else
 	{
 		ft_put_ptr(ptr);

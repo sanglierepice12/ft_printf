@@ -6,12 +6,12 @@
 /*   By: gostr <gostr@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:41:55 by gostr             #+#    #+#             */
-/*   Updated: 2023/12/20 09:41:55 by gostr            ###   ########.fr       */
+/*   Updated: 2023/12/21 09:57:49 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <unistd.h>
 # include <stddef.h>
@@ -20,13 +20,12 @@
 int	ft_printf(char *arg, ...);
 
 int	ft_putchar(char c);
-int ft_putstr(char *str);
-int ft_put_percent(void);
+int	ft_putstr(char *str);
+int	ft_put_percent(void);
 
 int	ft_print_ptr(unsigned long long ptr);
-int ft_putnbr(int nb);
-int ft_put_unsigned(unsigned int nb);
-int ft_put_hexa(unsigned int nb, const char format);
-
+int	ft_putnbr(int nb);
+int	ft_put_unsigned(unsigned int nb);
+int	ft_put_hexa(unsigned int nb, const char format);
 
 #endif

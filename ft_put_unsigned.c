@@ -6,15 +6,15 @@
 /*   By: gostr <gostr@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 15:55:16 by gostr             #+#    #+#             */
-/*   Updated: 2023/12/20 15:55:16 by gostr            ###   ########.fr       */
+/*   Updated: 2023/12/21 09:57:49 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_put_unsigned(unsigned int nb)
+int	ft_put_unsigned(unsigned int nb)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (nb == 0)
