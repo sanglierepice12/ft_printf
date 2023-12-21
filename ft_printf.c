@@ -24,8 +24,10 @@ static int	ft_format(va_list args, const char format)
 		return (ft_putnbr(va_arg(args, int)));
 	if (format == 'u')
 		return (ft_put_unsigned(va_arg(args, unsigned int)));
-	if (format == 'x' || format == 'X')
-		return (ft_put_hexa(va_arg(args, unsigned int), format));
+	if (format == 'X')
+		return (ft_put_hexa(va_arg(args, unsigned int), "0123456789ABCDEF"));
+	if (format == 'x')
+		return (ft_put_hexa(va_arg(args, unsigned int), "0123456789abcdef"));
 	if (format == '%')
 		return (ft_put_percent());
 	if (format == 0)

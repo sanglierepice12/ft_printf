@@ -27,6 +27,6 @@ int	ft_put_percent(void);
 int	ft_print_ptr(unsigned long long ptr);
 int	ft_putnbr(int nb);
 int	ft_put_unsigned(unsigned int nb);
-int	ft_put_hexa(unsigned int nb, const char format);
+int	ft_put_hexa(unsigned int nb, const char *format);
 
 #endif

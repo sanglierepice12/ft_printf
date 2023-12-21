@@ -15,15 +15,22 @@
 int	ft_put_unsigned(unsigned int nb)
 {
 	int	len;
+	int	tmp;
 
 	len = 0;
 	if (nb == 0)
-		len += ft_putchar('0');
+	{
+		tmp = ft_putchar('0');
+		len += tmp;
+	}
 	else
 	{
 		if (nb > 9)
 			len += ft_put_unsigned(nb / 10);
-		len += ft_putchar((nb % 10) + 48);
+		tmp = ft_putchar((nb % 10) + 48);
+		if (tmp == -1)
+			return (-1);
+		len += tmp;
 	}
 	return (len);
 }
