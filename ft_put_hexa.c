@@ -25,7 +25,7 @@ int	ft_put_hexa(unsigned int nb, const char *format)
 			return (-1);
 		len += tmp;
 	}
-	tmp = ft_putchar(format[nb] % 16);
+	tmp = ft_putchar(format[nb % 16]);
 	if (tmp == -1)
 		return (-1);
 	len += tmp;
